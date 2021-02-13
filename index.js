@@ -138,7 +138,8 @@ class Field {
   }
 
   harvest() {
-    this.state = 0
+    const allStates = FieldState.Plowed | FieldState.Planted | FieldState.Watered
+    this.state &= allStates ^ FieldState.Planted
     this.plantedAt = null
   }
 }
